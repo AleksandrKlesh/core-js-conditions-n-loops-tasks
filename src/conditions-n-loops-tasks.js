@@ -316,6 +316,23 @@ function isContainNumber(num, digit) {
  *  [1, 2, 3, 4, 5] => -1   => no balance element
  */
 function getBalanceIndex(/* arr */) {
+  /*
+  // let leftSum, rightSum = 0;
+  // let middleIndex = Math.floor(arr.length / 2) - 1;
+  // console.log(middleIndex);
+  // while (arr.middleIndex - 1 || arr.middleIndex + 1) {
+  //   leftSum += arr[middleIndex - 1];
+  //   rightSum += arr[middleIndex + 1];
+  //   if (leftSum > rightSum) {
+  //     middleIndex -= 1;
+  //   } else if (leftSum < rightSum) {
+  //     middleIndex += 1;
+  //   }
+  //   if (leftSum === rightSum) {
+  //     result = middleIndex;
+  //   }
+  // }
+  */
   throw new Error('Not implemented');
 }
 
@@ -377,8 +394,23 @@ function rotateMatrix(/* matrix */) {
  *  [2, 9, 5, 9]    => [2, 5, 9, 9]
  *  [-2, 9, 5, -3]  => [-3, -2, 5, 9]
  */
-function sortByAsc(/* arr */) {
-  throw new Error('Not implemented');
+function sortByAsc(arr) {
+  const newArr = arr;
+  let i = 0;
+  let j;
+  while (i < newArr.length) {
+    j = i + 1;
+    while (j < newArr.length) {
+      if (newArr[j] < newArr[i]) {
+        const temp = newArr[i];
+        newArr[i] = newArr[j];
+        newArr[j] = temp;
+      }
+      j += 1;
+    }
+    i += 1;
+  }
+  return newArr;
 }
 
 /**
