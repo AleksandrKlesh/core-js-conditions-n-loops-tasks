@@ -442,36 +442,31 @@ function sortByAsc(arr) {
  *  '012345', 3 => '024135' => '043215' => '031425'
  *  'qwerty', 3 => 'qetwry' => 'qtrewy' => 'qrwtey'
  */
-function shuffleChar(/* str, iterations */) {
-  // const newStr = str;
-  // let evenIndex;
-  // if (str.length % 2 === 0) {
-  //   evenIndex = str.length - 2;
-  // } else {
-  //   evenIndex = str.length - 1;
-  // }
-  // console.log(evenIndex, newStr, str);
-  // let i = 0;
-  // let j = 1;
-  // while (i < iterations) {
-  //   while (j <= Math.floor(newStr.length / 2)) {
-  //     if (evenIndex % 2 !== 0) {
-  //       evenIndex -= j;
-  //     }
-  //     let temp = newStr[evenIndex];
-  //     console.log('Temp', temp);
-  //     newStr[evenIndex] = newStr[evenIndex - 1];
-  //     console.log('Even index', newStr[evenIndex]);
-  //     newStr[evenIndex - 1] = temp;
-  //     console.log('Even index - 1', newStr[evenIndex - 1]);
-  //     console.log(newStr);
-  //     console.log(newStr[evenIndex]);
-  //     j += 1;
-  //   }
-  //   i += 1;
-  // }
-  // return newStr;
-  throw new Error('Not implemented');
+function shuffleChar(str, iterations) {
+  const size = str.length;
+  let finalStr = str;
+  for (
+    let currentIteration = 0;
+    currentIteration < iterations;
+    currentIteration += 1
+  ) {
+    let oddStr = '';
+    let evenStr = '';
+    for (
+      let currentPosition = 0;
+      currentPosition < size;
+      currentPosition += 1
+    ) {
+      if (currentPosition % 2 !== 0) {
+        oddStr += finalStr.charAt(currentPosition);
+      } else {
+        evenStr += finalStr.charAt(currentPosition);
+      }
+    }
+    finalStr = evenStr + oddStr;
+  }
+
+  return finalStr;
 }
 
 /**
